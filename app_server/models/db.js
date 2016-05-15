@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-
 var dbURI = 'mongodb://localhost/Loc8r';
+require('./locations');
+
 
 var gracefulShutdown = function(msg, callback) {
     mongoose.connection.close(function () {
