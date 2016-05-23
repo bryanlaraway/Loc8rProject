@@ -13,7 +13,6 @@ var gracefulShutdown = function(msg, callback) {
     })
 };
 
-
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to ' + dbURI);
 });
