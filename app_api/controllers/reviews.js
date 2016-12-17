@@ -26,7 +26,8 @@ module.exports.reviewsCreate = function (req, res) {
 
 module.exports.reviewsReadOne = function (req, res) {
     if (req.params && req.params.locationid && req.params.reviewid) {
-        Loc.findById(req.params.locationid)
+        Loc
+            .findById(req.params.locationid)
             .select('name reviews')
             .exec(function (err, location) {
                     var response, review;
@@ -51,7 +52,7 @@ module.exports.reviewsReadOne = function (req, res) {
                                     name: location.name,
                                     id: req.params.locationid
                                 },
-                                review: review
+                                review : review
                             };
                             sendJsonResponse(res, 200, response);
                         }
